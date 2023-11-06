@@ -13,10 +13,8 @@ export const links: LinksFunction = () => {
 		{ rel: 'stylesheet', href: fontStylesheetUrl },
 		{ rel: 'stylesheet', href: tailwindStylesheetUrl },
 		// 🐨 Add the cssBundleHref to the links array
-		...(cssBundleHref
-			? [{ rel: "stylesheet", href: cssBundleHref }]
-			: []),
-	]
+		cssBundleHref ? { rel: "stylesheet", href: cssBundleHref } : null,
+	].filter(Boolean)
 }
 
 export default function App() {
